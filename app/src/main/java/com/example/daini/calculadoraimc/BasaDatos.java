@@ -13,7 +13,7 @@ public class BasaDatos extends SQLiteOpenHelper {
 
     //seteo tabla
     private static final String SQL_CREA_TABLA_HISTORIAL =
-            "CREATE TABLE HISTORIAL(id INTEGER PRIMARY KEY AUTOINCREMENT, resultado TEXT, peso Text)";
+            "CREATE TABLE HISTORIAL(id INTEGER PRIMARY KEY AUTOINCREMENT, resultado TEXT)";
     //seteo nombre de tabla
     public static final String NOMBRE_TABLA = "HISTORIAL";
 
@@ -38,7 +38,7 @@ public class BasaDatos extends SQLiteOpenHelper {
     public void insertarResultados(Calculadora resultados)
     {
         SQLiteDatabase basaDatos = getWritableDatabase();
-        basaDatos.execSQL("INSERT INTO HISTORIAL(resultado, peso) VALUES ('" + resultados.getResultado()+"') ");
+        basaDatos.execSQL("INSERT INTO HISTORIAL(resultado) VALUES ('" + resultados.getResultado()+"') ");
         basaDatos.close();
     }
     //va a sacar resultado
